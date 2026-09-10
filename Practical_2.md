@@ -426,3 +426,10 @@ Students can explore the complete reference implementation built inside project 
 * **Restaurant Record Card & Delete Button:** [`p1/app/src/main/java/com/example/p1/practical2/ui/RestaurantRecordCard.kt`](./p1/app/src/main/java/com/example/p1/practical2/ui/RestaurantRecordCard.kt)
 * **Form State & Validation Logic:** [`p1/app/src/main/java/com/example/p1/practical2/model/RestaurantFormState.kt`](./p1/app/src/main/java/com/example/p1/practical2/model/RestaurantFormState.kt)
 * **Domain Model & Enums:** [`p1/app/src/main/java/com/example/p1/practical2/model/Restaurant.kt`](./p1/app/src/main/java/com/example/p1/practical2/model/Restaurant.kt)
+
+---
+
+## 🌐 Helpful Resources
+
+- **[Material 3 Design System (`m3.material.io`)](https://m3.material.io/):** Component catalogs, elevation tokens, color roles, and design guidelines for `OutlinedTextField`, `RadioButton`, `Card`, and `Button`.
+- **[Compose Material 3 Developer Guide](https://developer.android.com/develop/ui/compose/designsystems/material3):** Official Android documentation for implementing Material 3 components in Jetpack Compose.

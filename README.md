@@ -3,7 +3,7 @@
 ## 🛠️ Tech Stack & Prerequisites
 - **Language:** [Kotlin](https://kotlinlang.org/)
 - **IDE:** [Android Studio](https://developer.android.com/studio)
-- **UI Framework:** Jetpack Compose (Material 3)
+- **UI Framework:** [Jetpack Compose](https://developer.android.com/jetpack/compose) ([Material 3](https://m3.material.io/))
 - **Target Platform:** Android (Minimum SDK API 24+)
 - **Build System:** Gradle (Kotlin DSL - `build.gradle.kts`)
 
@@ -24,3 +24,12 @@
 - **[`p1/`](./p1/)**:
   - **Practical 1:** Starter Jetpack Compose application demonstrating project structure, `AndroidManifest.xml` setup, Gradle build scripts, and basic Compose greetings on an Android Virtual Device (AVD).
   - **Practical 2 (`com.example.p1.practical2`):** Modern restaurant data entry form built with `Column`, `Row`, `ElevatedCard`, custom `RadioButton` groups, real-time input validation, and a dynamic reactive record ledger. Switch between practicals seamlessly using the dashboard menu buttons.
+
+---
+
+## 🌐 Resources & Documentation
+
+- 🎨 **[Material 3 Design Guidelines (`m3.material.io`)](https://m3.material.io/)**: Official specifications, design tokens, color system, and UI component catalog for Material Design 3.
+- 📱 **[Jetpack Compose Material 3 Guide](https://developer.android.com/develop/ui/compose/designsystems/material3)**: Android developer documentation and best practices for implementing Material 3 in Compose.
+- 📖 **[Android Jetpack Compose Documentation](https://developer.android.com/jetpack/compose)**: Learn modern declarative UI development for Android.
+- 💻 **[Kotlin Language Documentation](https://kotlinlang.org/docs/home.html)**: Syntax guides, tutorials, and standard library documentation.
