@@ -11,6 +11,7 @@
 - Understand the architecture, components, and tags of `AndroidManifest.xml`.
 - Study Kotlin language fundamentals using the official Kotlin Beginner Tour.
 - Explore and modify Jetpack Compose UI code in `MainActivity.kt`.
+- Build a practicals dashboard menu with buttons for Practical 1 and Practical 2 opening pages with simple text.
 - Build, deploy, and verify the live personalized app on the running emulator.
 
 ---
@@ -230,37 +231,183 @@ fun GreetingPreview() {
 ### Step-by-Step Code Flow:
 1. `MainActivity` inherits from `ComponentActivity`, providing lifecycle integration.
 2. `onCreate()` is invoked when the OS initializes the activity.
-3. `enableEdgeToEdge()` ensures the UI renders seamlessly across the top status bar and bottom navigation bar.
+3. `enableEdgeToEdge()` ensures the UI renders edge-to-edge across the screen.
 4. `setContent { ... }` initializes Jetpack Compose without XML layouts.
 5. `@Composable fun Greeting()` is a declarative function describing UI state as a Material 3 `Text` element.
 6. `@Preview` enables instant visual UI previews directly inside Android Studio without booting the emulator.
 
 ---
 
+### 4.2 Building a Practicals Dashboard Menu with Buttons
+
+To prepare your project for subsequent lab practicals, we structure `MainActivity.kt` with a **Dashboard Menu** containing buttons for **Practical 1** and **Practical 2**. Each button opens a dedicated page displaying simple text, with a header button to return to the menu.
+
+#### 1. Preventing Top Bar Overlap with `safeDrawingPadding()`
+Because `enableEdgeToEdge()` is active, Android draws content behind the system status bar (where the clock, battery, and camera notch sit). We apply **`Modifier.safeDrawingPadding()`** to the root `Surface` so the top header and back button are never covered by the phone's top bar:
+
+```kotlin
+Surface(
+    modifier = Modifier
+        .fillMaxSize()
+        .safeDrawingPadding(), // Automatically insets below the phone's status bar
+    color = MaterialTheme.colorScheme.background
+) {
+    // Screen contents
+}
+```
+
+#### 2. Screen Navigation State & Buttons
+We declare an enum to represent the active screen:
+
+```kotlin
+enum class ActiveScreen {
+    HOME,
+    PRACTICAL_1,
+    PRACTICAL_2
+}
+```
+
+Inside `MainActivity`, a state variable `currentScreen` tracks which screen to show:
+
+```kotlin
+var currentScreen by remember { mutableStateOf(ActiveScreen.HOME) }
+
+// Hardware / gesture back button returns to the Home menu
+BackHandler(enabled = currentScreen != ActiveScreen.HOME) {
+    currentScreen = ActiveScreen.HOME
+}
+
+when (currentScreen) {
+    ActiveScreen.HOME -> {
+        PracticalsMenuScreen(
+            onSelectPractical1 = { currentScreen = ActiveScreen.PRACTICAL_1 },
+            onSelectPractical2 = { currentScreen = ActiveScreen.PRACTICAL_2 }
+        )
+    }
+    ActiveScreen.PRACTICAL_1 -> {
+        Column(modifier = Modifier.fillMaxSize()) {
+            BackToMenuHeader(title = "Practical 1", onBack = { currentScreen = ActiveScreen.HOME })
+            GreetingScreen()
+        }
+    }
+    ActiveScreen.PRACTICAL_2 -> {
+        Column(modifier = Modifier.fillMaxSize()) {
+            BackToMenuHeader(title = "Practical 2", onBack = { currentScreen = ActiveScreen.HOME })
+            Practical2PlaceholderScreen()
+        }
+    }
+}
+```
+
+#### 3. Menu Composable with Buttons
+The dashboard presents full-width buttons to launch each practical:
+
+```kotlin
+@Composable
+fun PracticalsMenuScreen(
+    onSelectPractical1: () -> Unit,
+    onSelectPractical2: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Column(
+        modifier = modifier
+            .fillMaxSize()
+            .padding(24.dp),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(
+            text = "Mobile Application Development",
+            style = MaterialTheme.typography.headlineSmall,
+            fontWeight = FontWeight.Bold,
+            color = MaterialTheme.colorScheme.primary
+        )
+
+        Text(
+            text = "Select a practical to launch:",
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.padding(top = 8.dp, bottom = 32.dp)
+        )
+
+        // Practical 1 Button
+        Button(
+            onClick = onSelectPractical1,
+            modifier = Modifier.fillMaxWidth().height(56.dp),
+            shape = RoundedCornerShape(14.dp)
+        ) {
+            Text("Practical 1: Environment & Greetings", style = MaterialTheme.typography.titleMedium)
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        // Practical 2 Button
+        Button(
+            onClick = onSelectPractical2,
+            modifier = Modifier.fillMaxWidth().height(56.dp),
+            shape = RoundedCornerShape(14.dp),
+            colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.secondary)
+        ) {
+            Text("Practical 2: Restaurant Data Entry Form", style = MaterialTheme.typography.titleMedium)
+        }
+    }
+}
+```
+
+#### 4. Header with Back Button
+Each practical screen displays a clean top row with a title and a button to return to the menu:
+
+```kotlin
+@Composable
+fun BackToMenuHeader(
+    title: String,
+    onBack: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Row(
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp, vertical = 12.dp),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Text(
+            text = title,
+            style = MaterialTheme.typography.titleLarge,
+            fontWeight = FontWeight.Bold,
+            color = MaterialTheme.colorScheme.primary
+        )
+
+        OutlinedButton(onClick = onBack, shape = RoundedCornerShape(10.dp)) {
+            Text("← Back to Practicals")
+        }
+    }
+}
+```
+
+---
+
 ## 🏁 Section 5: Running the Application & Verifying Live Output
 
-Follow these steps to run your first Android app:
+Follow these steps to run your Android app on the emulator:
 
 1. **Verify Selected Device:** Confirm your AVD (e.g., `Pixel 8 API 34`) is selected in the top device dropdown.
 2. **Click Run:** Click the green **Run (▶)** button in the top toolbar (or press `Shift + F10`).
 3. **Inspect the Build Tab:** Open the bottom **Build** tab to watch Gradle compile your Kotlin code, assemble DEX files, and package the debug APK.
 4. **Inspect Logcat:** Open the **Logcat** tab to observe runtime activity launch logs.
-5. **View App on Emulator:** The emulator screen will launch `p1` displaying:
-   ```
-   Hello Android!
-   ```
+5. **View App on Emulator:** The emulator screen will launch `p1` displaying the **Practicals Dashboard**:
+   * Tap **"Practical 1: Environment & Greetings"** to see your personalized greeting card.
+   * Tap **"← Back to Practicals"** to return to the dashboard.
+   * Tap **"Practical 2: Restaurant Data Entry Form"** to see the placeholder screen.
+
+| Practicals Dashboard (Menu) | Practical 1 (Greeting Screen) |
+| :---: | :---: |
+| <img src="./images/p1/img1.png" width="300" alt="Practicals Dashboard" /> | <img src="./images/p1/img2.png" width="300" alt="Practical 1 Greeting Screen" /> |
 
 ### 🧪 Student Exercise: Personalize the Greeting
-1. In [`MainActivity.kt`](./p1/app/src/main/java/com/example/p1/MainActivity.kt), navigate to line 24:
-   ```kotlin
-   Greeting(
-       name = "Your Name Here",
-       modifier = Modifier.padding(innerPadding)
-   )
-   ```
-2. Replace `"Android"` with your own full name and Student ID.
-3. Click **Apply Changes & Restart Activity** (`Ctrl + F10`) or click the green **Run** button.
-4. Verify that the updated greeting appears immediately on the emulator screen!
+1. In [`MainActivity.kt`](./p1/app/src/main/java/com/example/p1/MainActivity.kt), inside `GreetingScreen()`, replace `"Hello Android!"` with your own full name and Student ID.
+2. Click **Apply Changes & Restart Activity** (`Ctrl + F10`) or click the green **Run** button.
+3. Verify that your updated name appears immediately on the Practical 1 screen!
 
 ---
 
@@ -278,4 +425,6 @@ Students can explore and run the complete pre-configured reference project anyti
 To complete Practical 1, verify that:
 - [ ] You can explain the purpose of `AndroidManifest.xml` and key tags (`<activity>`, `<intent-filter>`).
 - [ ] You understand the difference between `val` and `var`, and basic null safety in Kotlin.
-- [ ] Your application successfully compiles and runs on the emulator displaying your custom personalized name.
+- [ ] Your application successfully launches the Practicals Dashboard with buttons for Practical 1 and Practical 2.
+- [ ] Tapping Practical 1 displays your personalized name, and tapping Practical 2 opens the placeholder screen.
+- [ ] The **"← Back to Practicals"** button safely returns you to the dashboard without status bar overlap.
