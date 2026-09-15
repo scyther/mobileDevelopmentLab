@@ -229,12 +229,15 @@ fun GreetingPreview() {
 ```
 
 ### Step-by-Step Code Flow:
-1. `MainActivity` inherits from `ComponentActivity`, providing lifecycle integration.
-2. `onCreate()` is invoked when the OS initializes the activity.
-3. `enableEdgeToEdge()` ensures the UI renders edge-to-edge across the screen.
-4. `setContent { ... }` initializes Jetpack Compose without XML layouts.
-5. `@Composable fun Greeting()` is a declarative function describing UI state as a Material 3 `Text` element.
-6. `@Preview` enables instant visual UI previews directly inside Android Studio without booting the emulator.
+1. **`MainActivity : ComponentActivity()`**: `MainActivity` is declared as a `class` (inheriting from `ComponentActivity`) because the Android Operating System requires an instantiated component registered in `AndroidManifest.xml` to manage windowing, configuration changes, and system lifecycles.
+2. **`override fun onCreate(savedInstanceState: Bundle?)`**: 
+   - `onCreate()` is the initial entry point of the [Android Activity Lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle). The OS calls this method once when initializing the Activity.
+   - `super.onCreate(savedInstanceState)` is required to allow Android to restore state and configure internal subsystems.
+   - For an in-depth guide on lifecycle callbacks (`onCreate`, `onStart`, `onResume`, etc.), see the official [Android Activity Lifecycle Documentation](https://developer.android.com/guide/components/activities/activity-lifecycle).
+3. **`enableEdgeToEdge()`**: Configures the window to draw edge-to-edge behind the system status and navigation bars.
+4. **`setContent { ... }`**: Bridges the Activity class to the Jetpack Compose world, setting the composable root tree without XML layouts.
+5. **`@Composable fun Greeting()`**: A declarative composable function describing UI state as a Material 3 `Text` element.
+6. **`@Preview`**: Enables instant visual UI previews directly inside Android Studio without booting an emulator.
 
 ---
 

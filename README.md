@@ -32,4 +32,5 @@
 - 🎨 **[Material 3 Design Guidelines (`m3.material.io`)](https://m3.material.io/)**: Official specifications, design tokens, color system, and UI component catalog for Material Design 3.
 - 📱 **[Jetpack Compose Material 3 Guide](https://developer.android.com/develop/ui/compose/designsystems/material3)**: Android developer documentation and best practices for implementing Material 3 in Compose.
 - 📖 **[Android Jetpack Compose Documentation](https://developer.android.com/jetpack/compose)**: Learn modern declarative UI development for Android.
+- 🔄 **[Android Activity Lifecycle Guide](https://developer.android.com/guide/components/activities/activity-lifecycle)**: Understand activity states, transitions, state preservation, and callbacks like `onCreate()`.
 - 💻 **[Kotlin Language Documentation](https://kotlinlang.org/docs/home.html)**: Syntax guides, tutorials, and standard library documentation.
