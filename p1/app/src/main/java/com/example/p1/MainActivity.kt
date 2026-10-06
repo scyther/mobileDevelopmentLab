@@ -230,10 +230,24 @@ fun GreetingScreen(modifier: Modifier = Modifier) {
     }
 }
 
+@Composable
+fun RowTest() {
+    Row(
+        modifier = Modifier.fillMaxSize(),
+        horizontalArrangement = Arrangement.Center,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Text("Hello")
+        Text("World")
+    }
+}
+
+
+
 @Preview(showBackground = true)
 @Composable
 fun MenuPreview() {
     P1Theme {
-        PracticalsMenuScreen(onSelectPractical1 = {}, onSelectPractical2 = {})
+        RowTest()
     }
 }
