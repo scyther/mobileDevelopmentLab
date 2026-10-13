@@ -2,6 +2,8 @@ package com.paytm.mobileApp.theory.navigation
 
 import kotlinx.serialization.Serializable
 
+// https://developer.android.com/guide/navigation#kts
+
 //Step 1:   Add these dependencies
 
 // Add these in project level Gradle file
