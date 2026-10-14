@@ -31,8 +31,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             PaytmTheme {
-                StateExampleClass()
-//                NavGraph()
+//                StateExampleClass()
+                NavGraph()
             }
         }
     }

@@ -51,6 +51,7 @@ fun Login(navController: NavHostController) {
 
         Button(onClick = {
             navController.navigate(NavRoutes.Home)
+            navController.navigate(NavRoutes.Welcome(userName))
 //            navController.navigate(NavRoutes.Welcome(userName))
         }) { Text(text = "Login") }
 

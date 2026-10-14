@@ -16,6 +16,7 @@
 | **01 (Session 1)** | **Session 1: Environment Setup, Project Wizard Exploration & IDE Architecture** | [Session 1 Manual](./Practical_1_Session_1.md) | [Project `p1`](./p1/) |
 | **01 (Session 2)** | **Session 2: Project Anatomy, Kotlin Tour, Code Deep Dive & App Execution** | [Session 2 Manual](./Practical_1_Session_2.md) | [Project `p1`](./p1/) |
 | **02** | **Practical 2: Modern Restaurant Registration Form (Rows, Columns, RadioButtons & State)** | [Practical 2 Manual](./Practical_2.md) | [Project `p1` (`practical2`)](./p1/app/src/main/java/com/example/p1/practical2/) |
+| **03** | **Practical 3: Production-Level Type-Safe Navigation (Routes, NavHost & Arguments)** | [Practical 3 Manual](./Practical_3.md) | [Project `Paytm` (`navigation`)](./Paytm/app/src/main/java/com/paytm/mobileApp/theory/navigation/) |
 
 ---
 
@@ -24,6 +25,8 @@
 - **[`p1/`](./p1/)**:
   - **Practical 1:** Starter Jetpack Compose application demonstrating project structure, `AndroidManifest.xml` setup, Gradle build scripts, and basic Compose greetings on an Android Virtual Device (AVD).
   - **Practical 2 (`com.example.p1.practical2`):** Modern restaurant data entry form built with `Column`, `Row`, `ElevatedCard`, custom `RadioButton` groups, real-time input validation, and a dynamic reactive record ledger. Switch between practicals seamlessly using the dashboard menu buttons.
+- **[`Paytm/`](./Paytm/)**:
+  - **Practical 3 (`com.paytm.mobileApp.theory.navigation`):** Modern type-safe navigation implementation in Jetpack Compose using Kotlinx Serialization, sealed class routes, argument passing via `toRoute<T>()`, and decoupled screen composables.
 
 ---
 
