@@ -157,9 +157,6 @@ sealed class NavRoutes {
 }
 ```
 
-### 💡 Why `@Serializable` on every child?
-The Navigation Compose compiler plugin inspects each route class at compile-time to automatically generate serializers and bundle marshalling logic.
-
 ---
 
 ## 📱 Section 4: Step 3 — Designing Screen Composables
