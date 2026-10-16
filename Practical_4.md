@@ -26,6 +26,12 @@ By completing this practical, students will be able to:
 
 ## 🧭 Section 1: Architecture & Theoretical Overview
 
+In this practical, you will implement local persistence using SQLite and Room Database across two complete Jetpack Compose interfaces: a core **User Database** screen and a real-world **Paytm Passbook** transaction ledger.
+
+| Room SQLite User App (`UserScreen`) | Paytm Passbook Capstone (`PassbookScreen`) |
+| :---: | :---: |
+| <img src="./images/p4/UserApp.png" width="280" alt="Room SQLite User App" /> | <img src="./images/p4/Passbook.png" width="280" alt="Paytm Passbook App" /> |
+
 ### 1.1 Why SQLite and Why Room?
 
 Android includes a full-featured, zero-configuration relational database engine called **SQLite** built directly into the operating system since API Level 1.
@@ -704,6 +710,18 @@ For a standalone distribution APK that can be installed on any device:
 7. Click **Create** / **Finish**.
 8. The signed release APK is output to:  
    `app/release/app-release.apk`.
+
+
+---
+
+## 📱 Section 10: Application Output & Verification
+
+Run both applications on your Android emulator or physical device and verify that your screens match the expected outputs:
+
+| Classroom Demo: Room SQLite User App | Real-World Capstone: Paytm Passbook |
+| :---: | :---: |
+| <img src="./images/p4/UserApp.png" width="300" alt="Room SQLite User App" /> | <img src="./images/p4/Passbook.png" width="300" alt="Paytm Passbook App" /> |
+| **`UserScreen.kt`**<br>• Real-time reactive list insertion & deletion<br>• Input fields for Name & Age<br>• Data persists across app reboots | **`PassbookScreen.kt`**<br>• Dynamic balance calculation (`CREDIT - DEBIT`)<br>• Category filtering chips (All, Food, Bills, etc.)<br>• Real-time Room aggregate queries (`SUM`) |
 
 
 ---
