@@ -23,6 +23,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.paytm.mobileApp.theory.StateExampleClass
 import com.paytm.mobileApp.theory.navigation.NavGraph
+import com.paytm.mobileApp.theory.passbook.PassbookApp
+import com.paytm.mobileApp.theory.room.RoomPracticalApp
 import com.paytm.mobileApp.ui.theme.PaytmTheme
 
 class MainActivity : ComponentActivity() {
@@ -32,7 +34,9 @@ class MainActivity : ComponentActivity() {
         setContent {
             PaytmTheme {
 //                StateExampleClass()
-                NavGraph()
+//                NavGraph() // Practical 3: Navigation
+                RoomPracticalApp() // Simple SQLite Room Demo
+//                PassbookApp()      // Practical 4: Paytm Passbook App
             }
         }
     }

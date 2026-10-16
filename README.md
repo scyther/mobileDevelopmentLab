@@ -17,6 +17,7 @@
 | **01 (Session 2)** | **Session 2: Project Anatomy, Kotlin Tour, Code Deep Dive & App Execution** | [Session 2 Manual](./Practical_1_Session_2.md) | [Project `p1`](./p1/) |
 | **02** | **Practical 2: Modern Restaurant Registration Form (Rows, Columns, RadioButtons & State)** | [Practical 2 Manual](./Practical_2.md) | [Project `p1` (`practical2`)](./p1/app/src/main/java/com/example/p1/practical2/) |
 | **03** | **Practical 3: Production-Level Type-Safe Navigation (Routes, NavHost & Arguments)** | [Practical 3 Manual](./Practical_3.md) | [Project `Paytm` (`navigation`)](./Paytm/app/src/main/java/com/paytm/mobileApp/theory/navigation/) |
+| **04** | **Practical 4: Local Storage in Jetpack Compose using SQLite Room & APK Generation** | [Practical 4 Manual](./Practical_4.md) | [Project `Paytm` (`room` & `passbook`)](./Paytm/app/src/main/java/com/paytm/mobileApp/theory/room/) |
 
 ---
 
@@ -27,6 +28,7 @@
   - **Practical 2 (`com.example.p1.practical2`):** Modern restaurant data entry form built with `Column`, `Row`, `ElevatedCard`, custom `RadioButton` groups, real-time input validation, and a dynamic reactive record ledger. Switch between practicals seamlessly using the dashboard menu buttons.
 - **[`Paytm/`](./Paytm/)**:
   - **Practical 3 (`com.paytm.mobileApp.theory.navigation`):** Modern type-safe navigation implementation in Jetpack Compose using Kotlinx Serialization, sealed class routes, argument passing via `toRoute<T>()`, and decoupled screen composables.
+  - **Practical 4 (`com.paytm.mobileApp.theory.room` & `com.paytm.mobileApp.theory.passbook`):** Local storage implementation with Room SQLite, Kotlin Coroutines Flow, MVVM architecture, reactive Compose UI, and step-by-step instructions for generating Android Debug and Release APKs.
 
 ---
 
