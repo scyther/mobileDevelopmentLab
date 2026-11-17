@@ -18,6 +18,7 @@
 | **02** | **Practical 2: Modern Restaurant Registration Form (Rows, Columns, RadioButtons & State)** | [Practical 2 Manual](./Practical_2.md) | [Project `p1` (`practical2`)](./p1/app/src/main/java/com/example/p1/practical2/) |
 | **03** | **Practical 3: Production-Level Type-Safe Navigation (Routes, NavHost & Arguments)** | [Practical 3 Manual](./Practical_3.md) | [Project `Paytm` (`navigation`)](./Paytm/app/src/main/java/com/paytm/mobileApp/theory/navigation/) |
 | **04** | **Practical 4: Local Storage in Jetpack Compose using SQLite Room & APK Generation** | [Practical 4 Manual](./Practical_4.md) | [Project `Paytm` (`room` & `passbook`)](./Paytm/app/src/main/java/com/paytm/mobileApp/theory/room/) |
+| **05** | **Practical 5: Restaurant Table Management App (Floor Plan, Room SQLite, Type-Safe Nav & Custom APK)** | [Practical 5 Manual](./Practical_5.md) | [Manual & Architecture](./Practical_5.md) |
 
 ---
 
@@ -29,6 +30,8 @@
 - **[`Paytm/`](./Paytm/)**:
   - **Practical 3 (`com.paytm.mobileApp.theory.navigation`):** Modern type-safe navigation implementation in Jetpack Compose using Kotlinx Serialization, sealed class routes, argument passing via `toRoute<T>()`, and decoupled screen composables.
   - **Practical 4 (`com.paytm.mobileApp.theory.room` & `com.paytm.mobileApp.theory.passbook`):** Local storage implementation with Room SQLite, Kotlin Coroutines Flow, MVVM architecture, reactive Compose UI, and step-by-step instructions for generating Android Debug and Release APKs.
+- **[`Practical_5.md`](./Practical_5.md)**:
+  - **Practical 5:** Assignment specification for building an offline Restaurant Table Management application featuring Room SQLite relational database, Material 3 Bottom Navigation with state preservation, compile-time Type-Safe Navigation Compose, MVVM architecture, and custom icon APK generation.
 
 ---
 
